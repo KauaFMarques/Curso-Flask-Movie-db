@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h2 style="text-align: center;">Teste de filmes</h2>
+<hr>
+<div class="row">
+  {% for a in filme %}
+  <div class="col-md-4 mb-4">
+    <div class="card" style="width: 18rem;">
+      <img src="http://image.tmdb.org/t/p/w500{{a.poster_path}}" class="card-img-top" alt="{{a.title}}">
+      <div class="card-body">
+        <h5 class="card-title">{{a.title}}</h5>
+        <p class="card-text">{{ a.overview }}</p>
+        <p>Release Date: {{ a.release_date }}</p>
+        <button type="button" class="btn btn-primary">
+           Vote Count: <span class="badge bg-info text-dark">{{a.vote_count}}</span>
+         </button>
+        <h3>Vote Average: <span class="badge bg-success">{{ a.vote_average }}</span></h3>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock conteudo %}
